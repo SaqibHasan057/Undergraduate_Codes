@@ -1,0 +1,276 @@
+--Student table
+
+CREATE TABLE Student(
+student_id VARCHAR2(9),
+dob DATE,
+first_name VARCHAR2(10) ,
+last_name VARCHAR2(10),
+father_fname VARCHAR2(10),
+father_lname VARCHAR2(10),
+mother_fname VARCHAR2(10),
+mother_lname VARCHAR2(10),
+street VARCHAR2(10),
+city VARCHAR2(10),
+state VARCHAR2(10),
+pin VARCHAR2(10),
+guardian_contact_no VARCHAR2(10),
+
+PRIMARY KEY(student_id)
+);
+
+-- Phone table
+
+CREATE TABLE Phone(
+student_id VARCHAR2(9),
+phone_no VARCHAR2(11),
+
+PRIMARY KEY(student_id,phone_no),
+
+FOREIGN KEY(student_id) REFERENCES Student(student_id)
+
+);
+
+--Email table
+
+CREATE TABLE Email(
+student_id VARCHAR2(9),
+email VARCHAR2(11),
+
+PRIMARY KEY(student_id,email),
+
+FOREIGN KEY(student_id) REFERENCES Student(student_id)
+
+);
+
+--Fee table
+
+CREATE TABLE Fee(
+fee_id VARCHAR2(9),
+type VARCHAR2(8),
+amount NUMBER(8),
+deadline DATE,
+startDate DATE,
+due NUMBER(10),
+year NUMBER(4),
+month NUMBER(2),
+PRIMARY KEY(fee_id)
+
+);
+
+--YearlyFee table
+
+CREATE TABLE YearlyFee(
+fee_id VARCHAR2(9),
+year NUMBER(4),
+yearId NUMBER(7),
+PRIMARY KEY(fee_id),
+
+FOREIGN KEY(fee_id) REFERENCES Fee(fee_id)
+ON DELETE CASCADE
+);
+
+
+--MonthlylyFee table
+
+CREATE TABLE MonthlyFee(
+fee_id VARCHAR2(9),
+year NUMBER(4),
+yearId NUMBER(7),
+PRIMARY KEY(fee_id),
+FOREIGN KEY(fee_id) REFERENCES Fee(fee_id)
+ON DELETE CASCADE
+
+);
+
+--HallPayment table
+
+CREATE TABLE HallPayment(
+receipt_id VARCHAR2(9),
+delay NUMBER(2),
+student_id VARCHAR2(9),
+fee_id VARCHAR2(9),
+due NUMBER(5),
+PRIMARY KEY(receipt_id),
+
+FOREIGN KEY(student_id) REFERENCES Student(student_id),
+
+FOREIGN KEY(fee_id) REFERENCES Fee(fee_id)
+);
+
+--Pay table
+
+CREATE TABLE Pay(
+student_id VARCHAR2(9),
+receipt_id VARCHAR2(9),
+date DATE,
+center VARCHAR2(9),
+method VARCHAR2(9),
+PRIMARY KEY(receipt_id),
+
+FOREIGN KEY(student_id) REFERENCES Student(student_id),
+
+FOREIGN KEY(receipt_id) REFERENCES HallPayment(receipt_id)
+);
+
+--Allocation table
+
+CREATE TABLE Allocation(
+allocation_id VARCHAR2(9),
+allocationDate DATE,
+endDate DATE,
+student_id VARCHAR2(9),
+seat_id VARCHAR2(9).
+PRIMARY KEY(allocation_id),
+
+FOREIGN KEY(student_id) REFERENCES Student(student_id),
+
+FOREIGN KEY(seat_id) REFERENCES Seat(seat_id)
+);
+
+--Seat table
+
+CREATE TABLE Seat(
+seat_id VARCHAR2(9),
+
+hallRoom_id VARCHAR2(9),
+
+PRIMARY KEY(seat_id,hallRoom_id),
+
+
+FOREIGN KEY(hallRoom_id) REFERENCES HallRoom(room_id)
+);
+
+--HallFee table
+
+CREATE TABLE HallFee(
+fee_id VARCHAR2(9),
+seat_id VARCHAR2(9),
+date DATE,
+center VARCHAR2(9),
+method VARCHAR2(9),
+
+PRIMARY KEY(fee_id),
+
+
+FOREIGN KEY(fee_id) REFERENCES Fee(fee_id)
+
+FOREIGN KEY(seat_id) REFERENCES Seat(seat_id)
+);
+
+--HallRoom table
+
+CREATE TABLE HallRoom(
+room_id VARCHAR2(9),
+floor NUMBEr(2),
+wing VARCHAR2(4),
+PRIMARY KEY(room_id),
+FOREIGN KEY(room_id) REFERENCES Staff(room_id)
+ON DELETE CASCADE
+);
+
+--Staff table
+
+CREATE TABLE Staff(
+staff_id VARCHAR2(9),
+dob DATE,
+first_name VARCHAR2(10) ,
+last_name VARCHAR2(10),
+street VARCHAR2(10),
+city VARCHAR2(10),
+state VARCHAR2(10),
+pin VARCHAR2(10),
+room_id VARCHAR2(9),
+
+PRIMARY KEY(staff_id),
+FOREIGN KEY(room_id) REFERENCES OtherRoom(room_id)
+
+);
+
+-- StaffPhone table
+
+CREATE TABLE StaffPhone(
+staff_id VARCHAR2(9),
+phone_no VARCHAR2(11),
+
+PRIMARY KEY(staff_id,phone_no),
+
+FOREIGN KEY(staff_id) REFERENCES Staff(staff_id)
+
+);
+
+--StaffEmail table
+
+CREATE TABLE StaffEmail(
+staff_id VARCHAR2(9),
+email VARCHAR2(11),
+
+PRIMARY KEY(staff_id,email),
+
+FOREIGN KEY(staff_id) REFERENCES Staff(staff_id)
+
+);
+
+
+--OtherRoom table
+
+CREATE TABLE OtherRoom(
+room_id VARCHAR2(9),
+type VARCHAR2(11),
+
+PRIMARY KEY(room_id),
+FOREIGN KEY(room_id) REFERENCES Staff(room_id)
+ON DELETE CASCADE
+
+);
+
+--Equipment table
+
+CREATE TABLE Equipment(
+equipment_id VARCHAR2(9),
+cost NUMBER(5),
+repait NUMBER(3),
+repaircost NUMBER(5),
+buyDate DATE,
+room_id VARCHAR2(9),
+type_id VARCHAR2(9)
+PRIMARY KEY(equipment_id),
+
+FOREIGN KEY(room_id) REFERENCES Room(room_id),
+
+FOREIGN KEY(type_id) REFERENCES Type(type_id)
+);
+
+--Room table
+
+CREATE TABLE Room(
+room_id VARCHAR2(9),
+type VARCHAR2(9),
+PRIMARY KEY(room_id)
+
+);
+
+--Type table
+
+
+CREATE TABLE Type(
+type_id VARCHAR2(9),
+name VARCHAR2(9),
+PRIMARY KEY(type_id)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

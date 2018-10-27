@@ -1,0 +1,123 @@
+﻿<ion-view view-title="Diagram">
+  <ion-content class="padding has-header">
+
+  <button class="button button-small button-stable" ng-click="return()">Go Back</button>
+ 
+
+ <div class="card">
+   <div class="item-text-wrap">
+
+ <div class="row header">
+  <div class="col">Area</div>
+  <div class="col">Total Crime</div>
+ </div>
+
+ <div class="row" ng-repeat="i in totalCrimes">
+          <div class="col">{{i.area_name}}</div>
+          <div class="col">{{i.total}}</div>
+ </div>
+
+ </div></div>
+
+
+
+
+
+
+  <div class="card">
+   <div class="item-text-wrap">
+
+ <div class="row header">
+  <div class="col">Area</div>
+  <div class="col">Number of Murder</div>
+ </div>
+
+ <div class="row" ng-repeat="i in murder">
+          <div class="col">{{i.area_name}}</div>
+          <div class="col">{{i.number_of_murder}}</div>
+ </div>
+
+  </div></div>
+
+
+
+
+
+
+  <div class="card">
+   <div class="item-text-wrap">
+
+ <div class="row header">
+  <div class="col">Area</div>
+  <div class="col">Number of Rapes</div>
+ </div>
+
+ <div class="row" ng-repeat="i in rape">
+          <div class="col">{{i.area_name}}</div>
+          <div class="col">{{i.number_of_rape}}</div>
+ </div>
+
+  </div></div>
+
+
+
+
+
+
+  <div class="card">
+   <div class="item-text-wrap">
+
+ <div class="row header">
+  <div class="col">Area</div>
+  <div class="col">Number of Robbery</div>
+ </div>
+
+ <div class="row" ng-repeat="i in robbery">
+          <div class="col">{{i.area_name}}</div>
+          <div class="col">{{i.number_of_robbery}}</div>
+ </div>
+
+  </div></div>
+
+
+
+
+
+
+  <div class="card">
+   <div class="item-text-wrap">
+
+ <div class="row header">
+  <div class="col">Area</div>
+  <div class="col">Number of Theft</div>
+ </div>
+
+ <div class="row" ng-repeat="i in theft">
+          <div class="col">{{i.area_name}}</div>
+          <div class="col">{{i.number_of_theft}}</div>
+ </div>
+
+  </div></div>
+
+
+
+
+
+
+  <div class="card">
+   <div class="item-text-wrap">
+
+ <div class="row header">
+  <div class="col">Area</div>
+  <div class="col">Number of terrorism related crimes</div>
+ </div>
+
+ <div class="row" ng-repeat="i in terrorism">
+          <div class="col">{{i.area_name}}</div>
+          <div class="col">{{i.number_of_terrorism}}</div>
+ </div>
+ 
+  </div></div>
+    
+  </ion-content>
+</ion-view>

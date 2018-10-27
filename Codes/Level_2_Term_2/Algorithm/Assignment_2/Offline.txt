@@ -1,0 +1,61 @@
+Offline 2 for Section A1: Counting inversion using divide and conquer approach
+1. Modify the program for Merge Sort to count inversions in a given array of integers. Your algorithm should run in O(n logn) time.
+
+2. During divide and conquer, for an array size less than equal to 14, do not subdivide the problem rather apply insertion sort.
+
+3. Write and submit a report as per the guideline available in the course page.
+
+##################################################################################################
+
+
+Offline 2 for Section A2: Finding a local minima in a grid of distinct numbers
+Problem Definition:
+
+You are given a two dimension array of distinct numbers. You can visualize the numbers are located in the intersections point of an nXn grid. You are required to find a (any not all) local minima from this numbers. Now the the definition of a local minima for such grid of numbers is as follows: A number is a local minima if it is smaller than all its neighbors. A neighbor of a number is the one which is located immediately to the left, right, above or below. However, it is understandable that all numbers arranged in a grid positions do not have equal number of neighbors. The numbers on the four sides have three neighbors whereas the numbers on the four corners have only two neighbors. All other numbers have four neighbors.
+
+Specific requirement:
+You are required to compute a local minima in a grid of numbers using divide and conquer technique. The running time of your program must be O(n) where n is the dimension of the grid, not the total number of input since total number of input will be n2. Hence the required running time of O(n) does not consider the input scanning part.
+
+
+##################################################################################################
+
+
+
+Offline 2 for Section B1: Finding closest pair of points in O(nlogn) time
+Problem Definition:
+
+Given a set of points in the two dimensional Eucleadian plane, you are required to find the closed pair of points. Here 'closeness' is measured in terms of the Eucleadian distance between two points.
+
+
+
+Specific task:
+
+1. You have to solve the problem using divide and conquer technique.
+
+2. The running time of your program must be O(nlogn)
+
+
+
+
+##################################################################################################
+
+
+
+
+
+Offline 2 for Section B2: Finding kth order statistic using divide and conquer approach
+Problem Definition:
+
+Given an array of numbers, find the kth order statistic: kth largest or smallest number of the array without sorting the numbers and using divide and conquer approach.
+
+
+
+Specific task:
+
+1. You have to solve the problem using divide and conquer technique.
+
+2. Use quicksort like partitioning but you cannot sort the array. Use median of medians as the pivot for partitioning.
+
+Note: You need to analyze worst case running times of the online and offline versions of k-th order statistics algorithms 
+
+##################################################################################################

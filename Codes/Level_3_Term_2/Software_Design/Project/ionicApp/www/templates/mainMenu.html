@@ -1,0 +1,78 @@
+﻿<ion-view>
+  <ion-content class="padding has-header">
+  <ion-side-menus enable-menu-with-back-views="true">
+ 
+  <ion-side-menu-content>
+     <ion-nav-bar class = "bar-positive padding has-header">
+   <ion-nav-title>
+       Main Menu
+   </ion-nav-title>
+   
+  
+	
+   <ion-nav-buttons side = "left">
+       <button menu-toggle = "left" class = "button button-small button-royal">User Info</button>
+   </ion-nav-buttons>
+      
+   <ion-nav-buttons side = "right">
+      <button class="button button-small button-royal" ng-click="return()">Log out</button>
+   </ion-nav-buttons>
+</ion-nav-bar>
+
+  <div class="card" >
+   <div class="item-text-wrap">
+   <img src="img/logo.png" class="center">
+   </div>
+</div>
+
+
+
+    <button class="button button-block button-balanced" ng-click="statistics()">See statistics and area info</button>
+
+    <button class="button button-block button-energized" ng-click="contacts()">View contacts of local law agency</button>
+
+    <button class="button button-block button-calm" ng-click="advertisement()">See and post advertisement</button>
+
+    <button class="button button-block button-assertive" ng-click="complaint()">See and post complaints</button>
+
+<button class="button button-block button-royal" ng-click="goMap()">Select area from map</button>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">User Info</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item >
+          User Name: {{user_info['user_name']}}
+        </ion-item>
+    
+        <ion-item >
+          User ID: {{user_info['user_id']}}
+        </ion-item>
+        
+        <ion-item >
+          Age: {{user_info['age']}}
+        </ion-item>
+        
+        <ion-item >
+          Email: {{user_info['email_id']}}
+        </ion-item>
+        
+        <ion-item >
+          Area: {{user_info['area_name']}}
+        </ion-item>
+        
+        <ion-item >
+          Area Selected: {{user_info['current_area']}}
+        </ion-item>
+          
+          
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
+
+  </ion-content>
+</ion-view>

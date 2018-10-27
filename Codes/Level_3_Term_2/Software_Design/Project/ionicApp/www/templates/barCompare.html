@@ -1,0 +1,80 @@
+﻿<ion-view view-title="Diagram">
+  <ion-content class="padding has-header">
+  <button class="button button-small button-stable" ng-click="return()">Go Back</button>
+  
+    
+   <div class="card">
+   <div class="item-text-wrap">
+    <div class="item-text-wrap item-divider">
+      <center>Total Crime</center>
+   </div>
+   
+    <canvas class="chart chart-horizontal-bar" chart-data="totalCrimeData" chart-labels="totalCrimeLabel" 
+	 chart-click="onClick" chart-options="options"></canvas>
+   </div>
+  </div>
+
+  <div class="card">
+   <div class="item-text-wrap">
+    <div class="item-text-wrap item-divider">
+      <center>Murder</center>
+   </div>
+    <canvas class="chart chart-horizontal-bar" chart-data="murderData" chart-labels="murderLabel" 
+	c chart-click="onClick" chart-options="options"></canvas>
+   </div>
+  </div>
+
+  <div class="card">
+   <div class="item-text-wrap">
+    <div class="item-text-wrap item-divider">
+      <center>Rape</center>
+   </div>
+    <canvas class="chart chart-horizontal-bar" chart-data="rapeData" chart-labels="rapeLabel" 
+	 chart-click="onClick" chart-options="options"></canvas>
+   </div>
+  </div>
+
+  <div class="card">
+   <div class="item-text-wrap">
+    <div class="item-text-wrap item-divider">
+      <center>Robbery</center>
+   </div>
+    <canvas class="chart chart-horizontal-bar" chart-data="robberyData" chart-labels="robberyLabel" 
+	 chart-click="onClick" chart-options="options"></canvas>
+   </div>
+  </div>
+
+  <div class="card">
+   <div class="item-text-wrap">
+    <div class="item-text-wrap item-divider">
+      <center>Theft</center>
+   </div>
+    <canvas class="chart chart-horizontal-bar" chart-data="theftData" chart-labels="theftLabel" 
+	 chart-click="onClick" chart-options="options"></canvas>
+   </div>
+  </div>
+
+  <div class="card">
+   <div class="item-text-wrap">
+    <div class="item-text-wrap item-divider">
+      <center>Terrorism</center>
+   </div>
+    <canvas class="chart chart-horizontal-bar" chart-data="terrorismData" chart-labels="terrorismLabel" 
+	chart-click="onClick" chart-options="options"></canvas>
+   </div>
+  </div>
+
+  <div class="card">
+   <div class="item-text-wrap">
+    <div class="item-text-wrap item-divider">
+      <center>Detailed Comparision</center>
+   </div>
+   
+    <canvas class="chart chart-horizontal-bar" chart-data="eachCrimeData" chart-labels="eachCrimeLabel" chart-series="eachCrimeSeries" 
+	 chart-click="onClick" chart-options="options"></canvas>
+   </div>
+  </div>
+
+
+  </ion-content>
+</ion-view>

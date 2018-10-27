@@ -1,0 +1,34 @@
+<ion-view view-title="Sign up" >
+  <ion-content>
+      <form name="signupForm">
+          <div class="card" style="margin-top:30px;">
+      <div class="list list-inset">
+          <label class=" item-input" style="margin-bottom:10px">
+              First name :&nbsp; <input type="text" placeholder="Firstname" style="border : 1px solid Gainsboro; padding:5px; " ng-model="data.firstname" required>
+          </label>
+		  <label class="item-input" style="margin-bottom:10px">
+              Surname :&nbsp; &nbsp;<input type="text" placeholder="Surname" style="border : 1px solid Gainsboro; padding:5px;" ng-model="data.surname" required>
+          </label>
+		  <label class="item-input" style="margin-bottom:10px">
+              Email :&emsp;&emsp;&nbsp;&nbsp; <input type="email" placeholder="Email" style="border : 1px solid Gainsboro; padding:5px;" ng-model="data.email" required>
+          </label>
+		  <label class="item-input" style="margin-bottom:10px">
+              Phone No :&nbsp;&nbsp; <input type="tel" placeholder="Phone" pattern="[0-9]{11}" maxlength="11" style="border : 1px solid Gainsboro; padding:5px;" ng-model="data.phone" required>
+          </label>
+		  <div class="item " style="border:none">
+              Gender :&emsp; <input type="radio" placeholder="Male" name="gender" value="male" ng-model="data.sex" required> Male &emsp;&emsp;&emsp;
+			  <input type="radio" placeholder="Female" name="gender" value="female" ng-model="data.sex" required> Female
+          </div>
+		  <label class="item-input" style="margin-bottom:10px">
+              City :&emsp;&emsp;&emsp;&nbsp; <input type="text" placeholder="City" style="border : 1px solid Gainsboro; padding:5px;" ng-model="data.city" required>
+          </label>
+          <label class="item-input" style="margin-bottom:100px">
+              Password :&nbsp;&nbsp;&nbsp; <input type="password" placeholder="Password" style="border : 1px solid Gainsboro; padding:5px;" ng-model="data.password" required>
+          </label>
+      </div>
+      </div>
+      <footer>  
+      <button class="button button-block button-calm" ng-click="signup()" ng-disabled="signupForm.$invalid">Sign up</button>                                          </footer> 
+      </form>
+  </ion-content>
+</ion-view>

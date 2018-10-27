@@ -1,0 +1,21 @@
+﻿<ion-view view-title="CrimeWatch">
+  <ion-content class="padding has-header">
+  <button class="button button-small button-stable" ng-click="return()">Go Back</button>
+  
+  <div class="card" ng-repeat = "i in contact">
+
+   <div class="item-text-wrap">
+      Name Of institution: {{i['name_of_institution']}}<br><br>
+      Email: {{i['email_id']}}<br><br>
+      Phone No.: {{i['phone_no']}}<br><br>
+      Website : {{i['link_to_website']}}<br><br>
+      Area of operation: {{i['area_name']}}<br><br>
+   </div>
+   
+  </div>
+
+    
+
+
+  </ion-content>
+</ion-view>

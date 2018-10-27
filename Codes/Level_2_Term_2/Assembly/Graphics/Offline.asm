@@ -1,0 +1,511 @@
+.Model Small
+draw_row Macro x
+    Local l1
+    ; draws a line in row x from col 0 to col 320
+    MOV AH, 0CH
+    MOV AL, 4
+    MOV CX, 0
+    MOV DX, x
+L1: INT 10h
+    INC CX
+    CMP CX, 319
+    JL L1
+    EndM
+    
+DRAW_RECTANGLE_ONE_COLUMN Macro X
+    Local l1
+    ; draws a line in row x from col 0 to col 320
+    MOV AH, 0CH
+    ;MOV AL, 3
+    MOV CX,X
+    MOV DX,10
+L1: INT 10h
+    INC DX
+    CMP DX,50
+    JL L1
+    EndM
+    
+DRAW_RECTANGLE_TWO_COLUMN Macro x
+    Local l1
+    ; draws a line in row x from col 0 to col 320
+    MOV AH, 0CH
+    ;MOV AL, 3
+    MOV CX,X 
+    MOV DX,76
+L1: INT 10h
+    INC DX
+    CMP DX,116
+    JL L1
+    EndM
+    
+DRAW_RECTANGLE_THREE_COLUMN Macro x
+    Local l1
+    MOV AH, 0CH
+    MOV CX,X
+    MOV DX,143
+L1: INT 10h
+    INC DX
+    CMP DX,183
+    JL L1
+    EndM
+    
+DRAW_RECTANGLE_PADDLE Macro x
+    Local l1
+    MOV AH, 0CH
+    MOV CX,254
+    MOV DX, x
+L1: INT 10h
+    INC CX
+    CMP CX,314
+    JLE L1
+    EndM
+    
+
+draw_col Macro y
+    Local l2
+    ; draws a line col y from row 0 to row 200
+    MOV AH, 0CH
+    MOV AL, 4
+    MOV CX, y
+    MOV DX, 0
+L2: INT 10h
+    INC DX
+    CMP DX, 200
+    JL L2
+    EndM
+
+.Stack 100h
+.Data
+new_timer_vec   dw  ?,?
+old_timer_vec   dw  ?,?
+NEW_KEY_VEC DW ?,?
+OLD_KEY_VEC DW ?,?
+timer_flag  db  0
+vel_x       dw  1
+vel_y       dw  1
+SCAN_CODE DB 0
+KEY_FLAG DB 0
+SCORE DW 0
+SCORE_MSG DB 'YOUR SCORE IS: $'
+
+RECTANGLE_ONE_START DW 170
+RECTANGLE_ONE_END DW 90
+
+RECTANGLE_TWO_START DW 300
+RECTANGLE_TWO_END DW 220
+
+RECTANGLE_THREE_START DW 190
+RECTANGLE_THREE_END DW 110
+
+SPEED_ONE DW 3
+SPEED_TWO DW 3
+SPEED_THREE DW 3
+
+PADDLE_TOP DW 10
+PADDLE_BOTTOM DW 50
+
+UP_ARROW DB 72
+DOWN_ARROW DB 80
+ESCAPE_KEY DB 1
+.Code
+
+set_display_mode Proc
+; sets display mode and draws boundary
+    MOV AH, 0
+    MOV AL, 0DH; 320x200 16 color
+    INT 10h
+; select palette    
+    ;MOV AH, 0BH
+    ;MOV BH, 1
+    ;MOV BL, 0
+    ;INT 10h
+; set bgd color
+    ;MOV BH, 0
+    ;MOV BL, 0; BLACK
+    ;INT 10h
+; draw boundary
+    DRAW_ROW 67
+    DRAW_ROW 133
+    RET
+set_display_mode EndP
+
+
+
+DISPLAY_RECTANGLE_ONE Proc
+; displays ball at col CX and row DX with color given in AL
+; input: AL = color of ball
+;    CX = col
+;    DX = row
+    MOV CX,RECTANGLE_ONE_END
+    RUN1:
+    DRAW_RECTANGLE_ONE_COLUMN CX
+    INC CX
+    CMP CX,RECTANGLE_ONE_START
+    JLE RUN1
+    
+    RET 
+DISPLAY_RECTANGLE_ONE EndP
+
+
+MOVE_REC_ONE Proc
+    MOV AL, 0
+    MOV CX,RECTANGLE_ONE_END
+    DRAW_RECTANGLE_ONE_COLUMN CX
+    INC CX
+    DRAW_RECTANGLE_ONE_COLUMN CX
+    INC CX
+    DRAW_RECTANGLE_ONE_COLUMN CX
+    ; get new position
+    ADD RECTANGLE_ONE_START,3
+    ADD RECTANGLE_ONE_END,3
+; check boundary
+    CMP RECTANGLE_ONE_START,319
+    JL TEST_TIMER_ONE
+    INC SCORE
+    MOV AL,0
+    CALL DISPLAY_RECTANGLE_ONE
+    MOV RECTANGLE_ONE_START,80
+    MOV RECTANGLE_ONE_END,0
+    MOV AL,15
+    CALL DISPLAY_RECTANGLE_ONE
+TEST_TIMER_ONE:
+    ;MOV CX,2
+    ;MOV DX,0
+    ;MOV AH,86H
+    ;INT 15H
+    MOV timer_flag, 0
+    MOV AL, 15
+    MOV CX,RECTANGLE_ONE_START
+    DRAW_RECTANGLE_ONE_COLUMN CX
+    DEC CX
+    DRAW_RECTANGLE_ONE_COLUMN CX
+    DEC CX
+    DRAW_RECTANGLE_ONE_COLUMN CX
+    RET 
+MOVE_REC_ONE EndP
+
+DISPLAY_RECTANGLE_TWO Proc
+
+    MOV CX,RECTANGLE_TWO_END
+    RUN2:
+    DRAW_RECTANGLE_TWO_COLUMN CX
+    INC CX
+    CMP CX,RECTANGLE_TWO_START
+    JLE RUN2
+    
+    RET 
+DISPLAY_RECTANGLE_TWO EndP
+
+MOVE_REC_TWO Proc
+    MOV AL, 0
+    MOV CX,RECTANGLE_TWO_END
+    DRAW_RECTANGLE_TWO_COLUMN CX
+    INC CX
+    DRAW_RECTANGLE_TWO_COLUMN CX
+    INC CX
+    DRAW_RECTANGLE_TWO_COLUMN CX
+    ; get new position
+    ADD RECTANGLE_TWO_START,3
+    ADD RECTANGLE_TWO_END,3
+; check boundary
+    CMP RECTANGLE_TWO_START,319
+    JL TEST_TIMER_TWO
+    INC SCORE
+    MOV AL,0
+    CALL DISPLAY_RECTANGLE_TWO
+    MOV RECTANGLE_TWO_START,80
+    MOV RECTANGLE_TWO_END,0
+    MOV AL,15
+    CALL DISPLAY_RECTANGLE_TWO
+TEST_TIMER_TWO:
+    ;MOV CX,3
+    ;MOV DX,0
+    ;MOV AH,86H
+    ;INT 21H
+    MOV AL, 15
+    MOV CX,RECTANGLE_TWO_START
+    DRAW_RECTANGLE_TWO_COLUMN CX
+    DEC CX
+    DRAW_RECTANGLE_TWO_COLUMN CX
+    DEC CX
+    DRAW_RECTANGLE_TWO_COLUMN CX
+    RET 
+MOVE_REC_TWO EndP
+
+DISPLAY_RECTANGLE_THREE Proc
+
+    MOV CX,RECTANGLE_THREE_END
+    
+    RUN3:
+    DRAW_RECTANGLE_THREE_COLUMN CX
+    INC CX
+    CMP CX,RECTANGLE_THREE_START
+    JLE RUN3
+    
+    RET 
+DISPLAY_RECTANGLE_THREE EndP
+
+MOVE_REC_THREE Proc
+    MOV AL, 0
+    MOV CX,RECTANGLE_THREE_END
+    DRAW_RECTANGLE_THREE_COLUMN CX
+    INC CX
+    DRAW_RECTANGLE_THREE_COLUMN CX
+    INC CX
+    DRAW_RECTANGLE_THREE_COLUMN CX
+    ; get new position
+    ADD RECTANGLE_THREE_START,3
+    ADD RECTANGLE_THREE_END,3
+; check boundary
+    CMP RECTANGLE_THREE_START,319
+    JL TEST_TIMER_THREE
+    INC SCORE
+    MOV AL,0
+    CALL DISPLAY_RECTANGLE_THREE
+    MOV RECTANGLE_THREE_START,80
+    MOV RECTANGLE_THREE_END,0
+    MOV AL,15
+    CALL DISPLAY_RECTANGLE_THREE
+TEST_TIMER_THREE:
+    ;MOV CX,3
+    ;MOV DX,0
+    ;MOV AH,86H
+    ;INT 21H
+    MOV AL, 15
+    MOV CX,RECTANGLE_THREE_START
+    DRAW_RECTANGLE_THREE_COLUMN CX
+    DEC CX
+    DRAW_RECTANGLE_THREE_COLUMN CX
+    DEC CX
+    DRAW_RECTANGLE_THREE_COLUMN CX
+    RET 
+MOVE_REC_THREE EndP
+
+DRAW_PADDLE PROC
+    
+    MOV DX,PADDLE_TOP
+DP1:
+    DRAW_RECTANGLE_PADDLE DX
+    INC DX
+    CMP DX,PADDLE_BOTTOM
+    JLE DP1
+    
+    RET
+DRAW_PADDLE ENDP
+
+MOVE_PADDLE PROC
+
+    CMP AX,0
+    JL UP_CONDITION
+    JMP DOWN_CONDITION
+    
+    UP_CONDITION:
+    CMP PADDLE_TOP,10
+    JLE DONE
+    MOV AL,0
+    CALL DRAW_PADDLE
+    ADD PADDLE_TOP,-67
+    ADD PADDLE_BOTTOM,-67
+    MOV AL,1
+    CALL DRAW_PADDLE
+    JMP DONE
+    
+    DOWN_CONDITION:
+    CMP PADDLE_BOTTOM,184
+    JGE DONE
+    MOV AL,0
+    CALL DRAW_PADDLE
+    ADD PADDLE_TOP,67
+    ADD PADDLE_BOTTOM,67
+    MOV AL,1
+    CALL DRAW_PADDLE
+    JMP DONE
+    
+    DONE:
+    RET
+    
+    
+MOVE_PADDLE ENDP
+
+BEEP PROC
+    PUSH CX
+    
+    MOV AL,0B6H
+    OUT 43H,AL
+    
+    MOV AX,1193
+    OUT 42H,AL
+    MOV AL,AH
+    OUT 42H,AL
+    
+    IN AL,61H
+    MOV AH,AL
+    OR AL,11B
+    OUT 61H,AL
+    
+    MOV CX,1
+    
+B_1:
+    CMP TIMER_FLAG,1
+    JNE B_1
+    MOV TIMER_FLAG,0
+    LOOP B_1
+    
+    MOV AL,AH
+    OUT 61H,AL
+    POP CX
+    RET
+BEEP ENDP
+
+CHECK_BOUNDARY PROC
+    XOR CX,CX
+    MOV CX,1
+    
+    CMP PADDLE_TOP,10
+    JE FIRST_CASE
+    CMP PADDLE_TOP,77
+    JE SECOND_CASE
+    CMP PADDLE_TOP,144
+    JE THIRD_CASE
+    
+FIRST_CASE:
+    CMP RECTANGLE_ONE_START,254
+    JGE GAME_OVER
+    JMP RETURN_TIME
+    
+SECOND_CASE:
+    CMP RECTANGLE_TWO_START,254
+    JGE GAME_OVER
+    JMP RETURN_TIME
+    
+THIRD_CASE:
+    CMP RECTANGLE_THREE_START,254
+    JGE GAME_OVER
+    JMP RETURN_TIME
+    
+GAME_OVER:
+    MOV CX,-1
+RETURN_TIME:
+    RET
+CHECK_BOUNDARY ENDP
+
+OUTDEC PROC
+;INPUT AX
+PUSH AX
+PUSH BX
+PUSH CX
+PUSH DX
+OR AX,AX
+JGE @END_IF1
+PUSH AX
+MOV DL,'-'
+MOV AH,2
+INT 21H
+POP AX
+NEG AX
+
+@END_IF1:
+XOR CX,CX
+MOV BX,10D
+
+@REPEAT1:
+XOR DX,DX
+DIV BX
+PUSH DX
+INC CX
+OR AX,AX
+JNE @REPEAT1
+
+MOV AH,2
+
+@PRINT_LOOP:
+
+POP DX
+OR DL,30H
+INT 21H
+LOOP @PRINT_LOOP
+
+POP DX
+POP CX
+POP BX
+POP AX
+RET
+OUTDEC ENDP
+
+    
+    
+
+main Proc
+    MOV AX, @data
+    MOV DS, AX
+        ; set graphics display mode & draw border
+    CALL set_display_mode
+    
+    MOV AL,15
+    CALL DISPLAY_RECTANGLE_ONE
+    CALL DISPLAY_RECTANGLE_TWO
+    CALL DISPLAY_RECTANGLE_THREE
+    MOV AL,1
+    CALL DRAW_PADDLE
+    MOV AX,10
+    ;CALL MOVE_PADDLE
+    MOV AX,-10
+    ;CALL MOVE_PADDLE
+    
+tt:
+    ;check if a key is pressed 
+    ;if not pressed ZF = 0
+    ;else ZF = 1 and AL = pressed character    
+    MOV AH,06H
+    MOV DL,0FFH
+    INT 21H
+    JZ END_KEY
+    
+    CMP AL,UP_ARROW
+    JNE MAY_BE_DOWN
+    ;ok, up is pressed
+    MOV AX,-2
+    CALL MOVE_PADDLE
+    JMP END_KEY
+    
+    MAY_BE_DOWN:
+    CMP AL,DOWN_ARROW
+    JNE END_KEY
+    ;ok, down is pressed
+    MOV AX,2
+    CALL MOVE_PADDLE
+    
+    END_KEY: 
+tt2:
+    CALL CHECK_BOUNDARY
+    CMP CX,0
+    JL GAME_END
+    MOV CX,3
+    MOV DX,0
+    MOV AH,86H
+    INT 15H
+    CALL MOVE_REC_ONE
+    CALL MOVE_REC_TWO
+    CALL MOVE_REC_THREE
+    JMP tt
+    
+GAME_END: 
+    MOV AH,0
+    INT 16H
+    
+    MOV AH,0
+    MOV AL,3
+    INT 10H
+    
+    LEA DX,SCORE_MSG
+    MOV AH,9
+    INT 21H
+    
+    MOV AX,SCORE
+    CALL OUTDEC
+    
+    MOV AH,4CH
+    INT 21H     
+    
+main EndP
+End main

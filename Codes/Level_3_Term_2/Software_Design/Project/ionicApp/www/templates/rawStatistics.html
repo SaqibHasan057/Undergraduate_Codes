@@ -1,0 +1,42 @@
+﻿<ion-view view-title="Diagram">
+  <ion-content class="padding has-header">
+
+  <button class="button button-small button-stable" ng-click="return()">Go Back</button>
+
+  <div class="card">
+   <div class="item-text-wrap">
+    <center>{{current_area}}</center>
+   </div>
+  </div>
+  
+ <div class="row header">
+  <div class="col">Crime</div>
+  <div class="col">Frequency</div>
+ </div>
+ <div class="row">
+          <div class="col">Number of Murders</div>
+          <div class="col">{{crime[0].number_of_murder}}</div>
+ </div>
+ <div class="row">
+          <div class="col">Number of Rapes</div>
+          <div class="col">{{crime[0].number_of_rape}}</div>
+ </div>
+ <div class="row">
+          <div class="col">Number of Robbery</div>
+          <div class="col">{{crime[0].number_of_robbery}}</div>
+ </div>
+ <div class="row">
+          <div class="col">Number of Theft</div>
+          <div class="col">{{crime[0].number_of_theft}}</div>
+ </div>
+ <div class="row">
+          <div class="col">Number of Terrorism</div>
+          <div class="col">{{crime[0].number_of_terrorism}}</div>
+ </div>
+ <div class="row">
+          <div class="col">Total number of crimes</div>
+          <div class="col">{{totalCrime}}</div>
+ </div>
+    
+  </ion-content>
+</ion-view>

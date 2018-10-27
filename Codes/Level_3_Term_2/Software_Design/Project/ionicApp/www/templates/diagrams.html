@@ -1,0 +1,35 @@
+﻿<ion-view view-title="Diagram">
+  <ion-content class="padding has-header">
+
+  <button class="button button-small button-stable" ng-click="return()">Go Back</button>
+
+  <div class="card">
+   <div class="item-text-wrap">
+    <center>{{current_area}}</center>
+   </div>
+  </div>
+
+
+  <div class="card">
+   <div class="item-text-wrap">
+    <canvas class="chart chart-bar" chart-data="data" chart-labels="labels" 
+	chart-series="series" chart-click="onClick"></canvas>
+   </div>
+  </div>
+    
+   <div class="card">
+   <div class="item-text-wrap">
+    <canvas class="chart chart-pie" chart-data="data" chart-labels="labels" 
+	chart-series="series" chart-click="onClick"></canvas>
+   </div>
+  </div>
+
+   <div class="card">
+   <div class="item-text-wrap">
+    <canvas class="chart chart-radar" chart-data="data" chart-labels="labels" 
+	chart-series="series" chart-click="onClick"></canvas>
+   </div>
+  </div>
+
+  </ion-content>
+</ion-view>

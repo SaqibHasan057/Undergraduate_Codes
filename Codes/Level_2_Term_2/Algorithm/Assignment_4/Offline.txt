@@ -1,0 +1,122 @@
+Offline 4 for Section B1: Branch and bound
+Implement a branch and bound algorithm for the set cover problem (as discussed in class). Your algorithm must be optimal i.e. needs to output the minimum number of sets needed to cover the universe as well as the sets picked. 
+
+At each node branch out by trying each of the remaining sets and then removing all the elements in the set picked from the universe set as well as from all remaining sets. 
+
+You may use the following as a lower bound for pruning the branch and bound tree:
+
+Number of sets picked so far+(Number of elements not covered so far)/(Maximum cardinality of the remaining sets)
+
+Last modified: Thursday, 5 May 2016, 2:34 PM
+
+
+
+
+
+
+
+
+
+
+######################################################################################################
+
+
+Offline 4 for Section B2: Branch and bound
+Implement a branch and bound algorithm for the bin packing problem (as discussed in class). Your algorithm must be optimal i.e. needs to output the minimum number of bins needed to pack all the integers as well as which integer is packed into which bin. 
+
+At each node branch out by trying to put all of the integers (that hasn't been put into any bin) in each of the current bins where it fits as well as putting the integer into a new bin.
+
+You may use the following as a lower bound for pruning the branch and bound tree:
+
+Number of bins used so far+(Sum of integers yet to be assigned to bins - total empty space in bins used so far)/(Capacity of bin)
+
+Last modified: Thursday, 5 May 2016, 2:58 PM
+
+
+
+
+
+######################################################################################################
+
+
+
+
+
+
+Offline 4 for Section A1: Branch and bound
+Implement a branch and bound algorithm for the sorting by reversals problem (as discussed in class). Your algorithm must be optimal i.e. needs to output the minimum number of reversals needed to sort the permutation as well as the reversals. 
+
+At each node branch out by trying all of the reversals between all pairs of breakpoints (it is possible to show that there exist an optimal solution that never increases number of breakpoints). 
+
+You may use the following as a lower bound for pruning the branch and bound tree:
+
+Number of reversals so far+(Number of breakpoints remaining)/2
+
+Last modified: Thursday, 5 May 2016, 2:46 PM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#######################################################################################################
+
+
+
+
+Offline 4 for Section A2
+Implement a branch and bound algorithm for the Multiprocessor Scheduling Problem (as discussed in class). Your algorithm must be optimal i.e. needs to output the scheduling that leads to minimization of time required to complete all the processes. 
+
+At each node branch out by trying to put all of the processes (that hasn't been assigned to any processor) to each of the processor.
+
+Store the current best solution (run greedy to get an initial solution). Backtrack if time to complete all processes assigned to any processor exceeds the current best solution.
+
+You may use the following as a lower bound for pruning the branch and bound tree:
+
+Earliest time of completion of the processors according to current assignment+(Total time to complete processes yet to be assigned to any processor)/(Number of processor)
+
+Last modified: Wednesday, 18 May 2016, 10:38 AM
+
+
+
+
+
+#######################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

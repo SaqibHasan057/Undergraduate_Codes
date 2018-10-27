@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Server">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="400.0" prefWidth="640.0">
+         <children>
+            <Label layoutX="118.0" layoutY="171.0" text="WELCOME TO SERVER">
+               <font>
+                  <Font size="41.0" />
+               </font>
+            </Label>
+            <Button fx:id="addFile" layoutX="212.0" layoutY="268.0" mnemonicParsing="false" onAction="#addAllFiles" prefHeight="31.0" prefWidth="217.0" text="Add Files" />
+         </children>
+      </Pane>
+   </children>
+</GridPane>

@@ -1,0 +1,12 @@
+SMAP
+allocation_jsp.java
+JSP
+*S JSP
+*F
++ 0 allocation.jsp
+allocation.jsp
+*L
+5,37:47
+43,26:86
+68,5:112
+*E

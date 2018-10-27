@@ -1,0 +1,17 @@
+<ion-view view-title="CrimeWatch">
+  <ion-content class="padding has-header">
+
+    <label class="item item-input"><span class="input-label">Description</span><input type="text" ng-model="data.description"></label>
+
+    <label class="item item-input"><span class="input-label">Type/Tag</span><input type="text" ng-model="data.type"></label>
+
+    <label class="item item-input"><span class="input-label">Contact Number</span><input type="text" ng-model="data.phone"></label>
+
+    <label class="item item-input"><span class="input-label">Contact Email</span><input type="email" ng-model="data.email"></label>
+
+    <label class="item item-input"><span class="input-label">Website Link</span><input type="text" ng-model="data.link"></label>
+
+    <button class="button button-block button-calm" ng-click="postAdvertisement()" >Register</button>
+
+  </ion-content>
+</ion-view>

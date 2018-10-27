@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FirstMenu">
+   <children>
+      <HBox layoutX="506.0" layoutY="14.0" prefHeight="84.0" prefWidth="251.0">
+         <children>
+            <Button fx:id="Login" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#LoginButton" prefHeight="64.0" prefWidth="133.0" text="Login" />
+            <Button fx:id="Register" mnemonicParsing="false" onAction="#RegisterButton" prefHeight="83.0" prefWidth="118.0" text="Register" />
+         </children>
+      </HBox>
+      <Text layoutX="142.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to the Youtube App" textAlignment="CENTER" wrappingWidth="523.6708984375">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Text>
+      <MediaView fitHeight="200.0" fitWidth="400.0" layoutX="42.0" layoutY="23.0" />
+   </children>
+</Pane>

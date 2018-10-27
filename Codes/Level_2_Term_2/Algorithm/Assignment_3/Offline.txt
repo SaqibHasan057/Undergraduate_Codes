@@ -1,0 +1,72 @@
+Offline for section A1: Sequence alignment
+
+
+Modify the online version to output the actual optimal alignment of sequences.
+Local sequence alignment: Instead of finding the optimal alignment of the entire sequences A and B, we want alignment of a substring of A of any length against a substring of B of any length such that the score is maximized. A very simple but clever modification to global sequence alignment allows this in O(mn) time.     
+Sequence alignment in linear space: Implement the global sequence alignment algorithm (both optimal score and the actual alignment) using O(n) space and in O(mn) time. Follow these steps:
+       i) First implement finding only the optimal score in O(n) space (you need to store only a small portion of the DP table at any time)
+       ii) Modify this to also return k where k is the index where the optimal path crosses m/2 i.e. the optimal path passes through (k,m/2).
+
+      iii) Now use the following approach:
+
+                   Find_path ( (0,0 ) to (n,m) )
+
+                           Find k-as above
+
+                           Find_path ( (0,0 ) to (k,m/2) )
+
+                           Find_path ( (k,m/2,0 ) to (n,m/2) )
+
+                           Concatenate the two paths
+
+
+
+Note: Correctness proof and running time analysis of (online+1) and 2 can be very brief.
+
+
+####################################################################################################
+
+
+Offline for section B1
+1. Extend the online version of parenthesis problem for expressions containing negative numbers (if you didn't already do it online as bonus). Modify it to output the actual parenthesization corresponding to the maximum sum in addition to the maximum sum.
+
+2. Consider the problem of parenthesizing expressions again. This time there will be no fractional input, i.e., only integers both negative and positive. There will be atmost two operators: addition (+) and multiplication (*). Now given an expression E and another integer 'k' , you are required to find out whether it is possible to parenthesize E such that it evaluates to 'k'. If the answer is YES, print the corresponding parenthesized expression. Assume the max and min value of E will be within -N and +N where N <=10000 and the value of 'k' within -N and +N. 
+
+Sample Input and output: 
+
+Input: E= 2+3*(-1)+4+(-7),  k=8
+
+Output: Yes. E=(2+3)*((-1)+4)+(-7)=8
+
+You must solve the problem using Dynamic Programming. (Hint: Think of a pseudo polynomial algorithm like the 0/1 knapsack problem. The running time will be O(n2N) where n is the length of the expression and N is the max/min value of the expression.)
+
+Bonus: Find out in how many ways the given can expression can be evaluated to 'k'.
+
+
+
+
+
+####################################################################################################
+
+
+
+
+
+Offline 3 for Section B2: Dynamic Programming
+1. Modify the online version to output the total number of ways change can be made for an amount given as input. For example if the currency system is 1, 5, 10 and the amount is 10 then the output should be 4 (four ways are 10*1, 5*2, 5*1+1*5, 1*10).
+
+2. Consider the following variant of the change making problem where you only have a limited number of each type of note. You will be given as input a currency system with n types of notes, an amount W as well as  numbers k_1, k_2, ..., k_n. You need to output the minimum number of notes to make change for W without using i-th type of note more than k_i times (you also need to output the notes used to make the change). 
+
+
+
+Last modified: Sunday, 17 April 2016, 1:47 PM
+
+
+
+
+
+
+
+
+
+####################################################################################################

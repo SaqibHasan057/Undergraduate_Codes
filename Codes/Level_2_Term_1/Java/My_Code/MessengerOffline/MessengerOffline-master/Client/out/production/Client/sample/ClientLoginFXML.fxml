@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller1">
+   <children>
+      <AnchorPane layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="62.0" layoutY="137.0" prefHeight="28.0" prefWidth="126.0" text="Client Name">
+               <font>
+                  <Font name="Comic Sans MS" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="service" layoutX="188.0" layoutY="136.0" prefHeight="31.0" prefWidth="309.0" />
+            <Button fx:id="connect" layoutX="228.0" layoutY="244.0" mnemonicParsing="false" onAction="#click" prefHeight="42.0" prefWidth="145.0" text="Connect">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

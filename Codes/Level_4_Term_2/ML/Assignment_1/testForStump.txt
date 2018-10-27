@@ -1,0 +1,15 @@
+Outlook Temperature Humidity Weather Play?
+S H H W -
+S H H S -
+O H H W +
+R M H W +
+R C N W +
+R C N S -
+O C N S +
+S M H W -
+S C N W +
+R M N W +
+S M N S +
+O M H S +
+O H N W +
+R M H S -

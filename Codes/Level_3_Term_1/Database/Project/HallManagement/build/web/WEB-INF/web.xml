@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>LoginController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController.do</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>StudentViewController</servlet-name>
+        <servlet-class>StudentViewController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>StudentViewController</servlet-name>
+        <url-pattern>/StudentViewController.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>StudentInsertController</servlet-name>
+        <servlet-class>StudentInsertController</servlet-class>
+    </servlet>
+    
+     <servlet-mapping>
+        <servlet-name>StudentInsertController</servlet-name>
+        <url-pattern>/StudentInsertController.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>StudentDeleteController</servlet-name>
+        <servlet-class>StudentDeleteController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>StudentDeleteController</servlet-name>
+        <url-pattern>/StudentDeleteController.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>LogoutController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/LogoutController.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>RegisterController</servlet-name>
+        <servlet-class>RegisterController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>RegisterController</servlet-name>
+        <url-pattern>/RegisterController.do</url-pattern>
+    </servlet-mapping>
+   
+   <servlet>
+        <servlet-name>AllocationInsert</servlet-name>
+        <servlet-class>AllocationInsert</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>AllocationInsert</servlet-name>
+        <url-pattern>/AllocationInsert.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>FeeViewController</servlet-name>
+        <servlet-class>FeeViewController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>FeeViewController</servlet-name>
+        <url-pattern>/FeeViewController.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>DueViewController</servlet-name>
+        <servlet-class>DueViewController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>DueViewController</servlet-name>
+        <url-pattern>/DueViewController.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SeatViewController</servlet-name>
+        <servlet-class>SeatViewController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>SeatViewController</servlet-name>
+        <url-pattern>/SeatViewController.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>LocationViewController</servlet-name>
+        <servlet-class>LocationViewController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>LocationViewController</servlet-name>
+        <url-pattern>/LocationViewController.do</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>HistoryController</servlet-name>
+        <servlet-class>HistoryController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>HistoryController</servlet-name>
+        <url-pattern>/HistoryController.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>EquipmentTallyController</servlet-name>
+        <servlet-class>EquipmentTallyController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>EquipmentTallyController</servlet-name>
+        <url-pattern>/EquipmentTallyController.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>TotalEquipmentCost</servlet-name>
+        <servlet-class>TotalEquipmentCost</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>TotalEquipmentCost</servlet-name>
+        <url-pattern>/TotalEquipmentCost.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>StudentProfileController</servlet-name>
+        <servlet-class>StudentProfileController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>StudentProfileController</servlet-name>
+        <url-pattern>/StudentProfileController.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AllocationEnd</servlet-name>
+        <servlet-class>AllocationEnd</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>AllocationEnd</servlet-name>
+        <url-pattern>/AllocationEnd.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AllocationChange</servlet-name>
+        <servlet-class>AllocationChange</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>AllocationChange</servlet-name>
+        <url-pattern>/AllocationChange.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>HallPaymentInsertController</servlet-name>
+        <servlet-class>HallPaymentInsertController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>HallPaymentInsertController</servlet-name>
+        <url-pattern>/HallPaymentInsertController.do</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>HallFeeInsertController</servlet-name>
+        <servlet-class>HallFeeInsertController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>HallFeeInsertController</servlet-name>
+        <url-pattern>/HallFeeInsertController.do</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>EquipmentInsertController</servlet-name>
+        <servlet-class>EquipmentInsertController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>EquipmentInsertController</servlet-name>
+        <url-pattern>/EquipmentInsertController.do</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>RepairCostController</servlet-name>
+        <servlet-class>RepairCostController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>RepairCostController</servlet-name>
+        <url-pattern>/RepairCostController.do</url-pattern>
+    </servlet-mapping>
+    
+      <servlet>
+        <servlet-name>UnoccupiedSeatViewController</servlet-name>
+        <servlet-class>UnoccupiedSeatViewController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>UnoccupiedSeatViewController</servlet-name>
+        <url-pattern>/UnoccupiedSeatViewController.do</url-pattern>
+    </servlet-mapping>
+    
+    
+      <servlet>
+        <servlet-name>StudentUpdateController</servlet-name>
+        <servlet-class>StudentUpdateController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>StudentUpdateController</servlet-name>
+        <url-pattern>/StudentUpdateController.do</url-pattern>
+    </servlet-mapping>
+
+
+
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

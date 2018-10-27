@@ -1,0 +1,291 @@
+
+type_specifier : INT
+
+
+declaration_list : ID LTHIRD CONST_INT RTHIRD
+a
+
+
+declaration_list : declaration_list COMMA ID
+c
+
+
+declaration_list : declaration_list COMMA ID
+i
+
+
+declaration_list : declaration_list COMMA ID
+j
+
+
+var_declaration : type_specifier declaration_list SEMICOLON
+
+
+type_specifier : FLOAT
+
+
+declaration_list : ID
+c
+Error at Line 2: Multiple Declaration of c
+
+
+var_declaration : type_specifier declaration_list SEMICOLON
+
+
+factor : CONST_INT
+2
+
+
+unary_expression : factor
+
+
+term : unary_expression
+
+
+simple_expression : term
+
+
+rel_expression : simple_expression
+
+
+logic_expression : rel_expression
+
+
+expression : logic_expression
+
+
+variable : ID LTHIRD expression RTHIRD
+a
+Error at Line 3 : Array Index out of bound 
+
+
+factor : CONST_INT
+1
+
+
+unary_expression : factor
+
+
+term : unary_expression
+
+
+simple_expression : term
+
+
+rel_expression : simple_expression
+
+
+logic_expression : rel_expression
+
+
+expression : variable ASSIGNOP logic_expression
+
+
+expression_statement : expression SEMICOLON
+
+
+statement : expression_statement
+
+
+statements : statement
+
+
+variable : ID
+i
+
+
+factor : CONST_FLOAT
+2.3
+
+
+unary_expression : factor
+
+
+term : unary_expression
+
+
+simple_expression : term
+
+
+rel_expression : simple_expression
+
+
+logic_expression : rel_expression
+
+
+expression : variable ASSIGNOP logic_expression
+Error at line 4 : Type Mismatch
+
+
+expression_statement : expression SEMICOLON
+
+
+statement : expression_statement
+
+
+statements : statements statement
+
+
+variable : ID
+j
+
+
+factor : CONST_INT
+2
+
+
+unary_expression : factor
+
+
+term : unary_expression
+
+
+factor : CONST_FLOAT
+3.7
+
+
+unary_expression : factor
+
+
+term : term MULOP unary_expression
+Error at line: 5 : Integer operand on modulus operator
+
+
+simple_expression : term
+
+
+rel_expression : simple_expression
+
+
+logic_expression : rel_expression
+
+
+expression : variable ASSIGNOP logic_expression
+
+
+expression_statement : expression SEMICOLON
+
+
+statement : expression_statement
+
+
+statements : statements statement
+
+
+variable : ID
+a
+
+
+factor : CONST_INT
+4
+
+
+unary_expression : factor
+
+
+term : unary_expression
+
+
+simple_expression : term
+
+
+rel_expression : simple_expression
+
+
+logic_expression : rel_expression
+
+
+expression : variable ASSIGNOP logic_expression
+Error at line 6 : Type Mismatch
+
+
+expression_statement : expression SEMICOLON
+
+
+statement : expression_statement
+
+
+statements : statements statement
+
+
+variable : ID
+b
+Error at Line 7 : Undeclared Variable: b
+
+
+factor : CONST_INT
+8
+
+
+unary_expression : factor
+
+
+term : unary_expression
+
+
+simple_expression : term
+
+
+rel_expression : simple_expression
+
+
+logic_expression : rel_expression
+
+
+expression : variable ASSIGNOP logic_expression
+
+
+expression_statement : expression SEMICOLON
+
+
+statement : expression_statement
+
+
+statements : statements statement
+
+
+factor : CONST_INT
+0
+
+
+unary_expression : factor
+
+
+term : unary_expression
+
+
+simple_expression : term
+
+
+rel_expression : simple_expression
+
+
+logic_expression : rel_expression
+
+
+expression : logic_expression
+
+
+statement : RETURN expression SEMICOLON
+
+
+statements : statements statement
+
+
+compound_statement : LCURL var_declaration statements RCURL
+
+
+Program : INT MAIN compound_statement
+
+
+
+		symbol table: 
+4 --> < a, ID, { -1, -1 } >
+6 --> < c, ID, -9999999.000000>
+12 --> < i, ID, -9999999.000000>
+13 --> < j, ID, -9999999.000000>
+
+Total Lines: 10
+
+Total Errors: 6
+

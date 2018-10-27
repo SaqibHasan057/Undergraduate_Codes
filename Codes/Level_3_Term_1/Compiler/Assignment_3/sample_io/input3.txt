@@ -1,0 +1,12 @@
+int main(){
+	int a[2],c,i,j ; float d;
+	a[0]=1;
+	a[1]=5;
+	for(i=0;i<2;i=i+1){
+		if(i==0)
+			a[0]=8;
+		else
+			a[1]=7;
+	}
+	return 0;
+}

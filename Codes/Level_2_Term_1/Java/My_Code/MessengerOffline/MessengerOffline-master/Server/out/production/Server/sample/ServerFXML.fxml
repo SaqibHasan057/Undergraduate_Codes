@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0">
+         <children>
+            <Pane layoutX="44.0" layoutY="123.0" prefHeight="361.0" prefWidth="300.0">
+               <children>
+                  <TableView fx:id="tableView" prefHeight="361.0" prefWidth="300.0">
+                    <columns>
+                      <TableColumn fx:id="Name" prefWidth="150.0" text="NAME" />
+                      <TableColumn fx:id="Action" prefWidth="150.0" text="ACTION" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            <TextArea fx:id="textArea" layoutX="413.0" layoutY="123.0" prefHeight="394.0" prefWidth="330.0" />
+            <Label layoutX="44.0" layoutY="64.0" text="Client List" underline="true" wrapText="true">
+               <font>
+                  <Font name="Comic Sans MS" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="413.0" layoutY="64.0" prefHeight="30.0" prefWidth="161.0" text="Message Box" underline="true" AnchorPane.bottomAnchor="546.0" AnchorPane.leftAnchor="413.0" AnchorPane.rightAnchor="226.0" AnchorPane.topAnchor="64.0">
+               <font>
+                  <Font name="Comic Sans MS" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

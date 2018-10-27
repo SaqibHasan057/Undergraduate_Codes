@@ -1,0 +1,64 @@
+﻿<ion-view view-title="Complaint">
+  <ion-content class="padding has-header">
+  <button class="button button-small button-stable" ng-click="return()">Go Back</button>
+
+    <div class="card">
+
+    <div class="item-text-wrap">
+    <label class = "item item-input item-select">
+   <div class = "input-label">
+      Select Area
+   </div>
+   <select ng-model="data.area_name" >
+      <option>Mohammadpur</option>
+      <option>Shahjahanpur</option>
+      <option>Gulshan</option>
+      <option>Mirpur</option>
+      <option>Dhanmondi</option>
+   </select>
+</label>
+
+    <label class="item item-input"><span class="input-label">Problem</span><input type="text" ng-model="data.description"></label>
+
+    <div class="card">
+
+    <div class="item-text-wrap">
+    <label class = "item item-input item-select">
+   <div class = "input-label">
+      Select Tag
+   </div>
+   <select ng-model="data.tag" >
+      <option>Theft</option>
+      <option>Robbery</option>
+      <option>Murder</option>
+      <option>Theft</option>
+      <option>Terrorism</option>
+   </select>
+</label>
+
+
+    <button class="button button-block button-energized" ng-click="postComplaint()" >Post Complaint</button>
+
+    </div>
+
+    </div>
+
+    <div class="card" ng-repeat = "i in database">
+    <div class="item-text-wrap item-divider">
+      Type: {{i['tag']}}<br><br>
+      Area: {{i['area_name']}}<br><br>
+      Date: {{ i['date_of_issue'] | date : "fullDate" }}
+   </div>
+   <div class="item-text-wrap">
+      {{i['description']}}<br><br>
+   </div>
+   <div class="item-text-wrap item-divider">
+      User: {{i['user_name']}}<br><br>
+   </div>
+</div>
+
+    
+
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,79 @@
+Offline 5 for Section B1
+Apologies for the delay in announcing assignment. The report for this week will be waived. Here are the tasks:
+
+1. Implement Kruskal's algorithm using union-find data structure.
+
+2. Implement Bellman-Ford algorithm including negative cycle detection. 
+
+Last modified: Wednesday, 18 May 2016, 10:41 AM
+
+
+
+
+################################################################################################################
+
+
+Offline 5 for Section B2 on graph algorithms
+The assignments are (as mentioned in class)
+
+1. Implement Prim's algorithm using the heap data structure you implemented earlier. The running time needs to be O(|E| log |V|)
+
+2. Implement Bellman-Ford algorithm including negative cycle detection. 
+
+Last modified: Thursday, 26 May 2016, 2:54 PM
+
+
+
+
+################################################################################################################
+
+
+
+
+Offline 5 for A1 on graph Algorithms
+1. Implement a linear time algorithm for finding single source shortest path in a weighted Directed Acyclic Graph (DAG).
+2. Implement Dijkstra's algorithm for finding shortest paths in a weighted directed graph.
+
+Last modified: Monday, 16 May 2016, 6:08 PM
+
+
+
+
+
+################################################################################################################
+
+
+
+
+Offline 5 for Section A2 on graph algorithms
+The assignments are (as mentioned in class)
+
+1. Implement Kruskal's algorithm using union-find data structure.
+
+2.  Implement Dijkstra's algorithm for finding shortest paths in a weighted directed graph.
+
+The report for this week will be waived. 
+
+Last modified: Wednesday, 8 June 2016, 1:42 PM
+
+
+
+
+
+
+
+################################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+

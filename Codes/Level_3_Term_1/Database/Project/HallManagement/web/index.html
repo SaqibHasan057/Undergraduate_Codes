@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Login Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    <center>
+        <h2>Welcome to Robust and Dynamic Hall Manager v1.02</h2>
+        <h3>Sign In</h3>
+        <form method="post" action="LoginController.do" >
+            Enter your username: <input type="text" name="User" /> <br/>
+            Enter your password: <input type="password" name="Password" /> <br/>
+            <input type="submit" value="Login" />
+        </form>
+        <br><br><br>
+        
+        <h3>Register</h3>
+        <form method="post" action="RegisterController.do" >
+            Username: <input type="text" name="newUser" /> <br/>
+            Password: <input type="password" name="newPassword" /> <br/>
+            Re-enter Password: <input type="password" name="reEnterNewPassword" /> <br/>
+            <input type="submit" value="Register" />
+        </form>
+    </center>
+    </body>
+</html>

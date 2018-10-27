@@ -1,0 +1,5 @@
+-Take idea from this sample and write code in your yacc file.
+-The sample code generation file is just for some guideline, you don't have to follow it.
+-Symbol Table is omitted here. You should include your own symbol table and use it in your implementation.
+-The last rule factor: factor INCOP is changed to factor : variable INCOP.
+-Code generation should be an easy task now!

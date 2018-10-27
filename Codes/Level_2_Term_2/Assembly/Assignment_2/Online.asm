@@ -1,0 +1,447 @@
+.MODEL SMALL
+.STACK 100H
+.DATA   
+TEMP DW 0
+INPUT1 DW 0
+INPUT2 DW 0
+MAXIMUM DW 0 
+K DW 0
+N DW 0 
+CYCLE DW 0 
+FLAG DW 0
+.CODE
+MAIN PROC 
+   MOV DX,@DATA
+   MOV DS,DX 
+   
+   ETERNAL: 
+   
+   TAKE_INPUT1:
+   MOV AH,1
+   INT 21H
+   MOV AH,0
+   MOV BX,AX
+   CMP BX,0DH
+   JE NEWLINE
+   SUB BX,'0'
+   MOV AX,10
+   MOV CX,INPUT1
+   MUL CX
+   MOV CX,AX
+   ADD CX,BX
+   MOV INPUT1,CX
+   JMP TAKE_INPUT1 
+   
+   NEWLINE:
+   MOV AH,2
+   MOV DL,0DH
+   INT 21H
+   MOV DL,0AH
+   INT 21H
+   
+   TAKE_INPUT2:
+   MOV AH,1
+   INT 21H
+   MOV AH,0
+   MOV BX,AX
+   CMP BX,0DH
+   JE  NEXT
+   SUB BX,'0'
+   MOV AX,10
+   MOV CX,INPUT2
+   MUL CX
+   MOV CX,AX
+   ADD CX,BX
+   MOV INPUT2,CX
+   JMP TAKE_INPUT2
+   
+   NEXT: 
+   MOV BX,INPUT1 
+   MOV CX,INPUT2
+   CMP BX,CX
+   JLE EXIT
+   JMP CONDITION
+   
+   CONDITION:
+   MOV INPUT1,CX
+   MOV INPUT2,BX
+   
+   EXIT: 
+   
+   ;MAIN PROGRAM 
+   MOV CX,INPUT1
+   MOV K,CX
+   FOR_LOOP:
+   MOV BX,INPUT2  
+   CMP K,BX
+   JG EXIT_FOR_LOOP
+   MOV CX,K
+   MOV N,CX 
+   MOV CYCLE,0
+   WHILE_LOOP:
+   MOV CX,N
+   CMP CX,1
+   JE EXIT_WHILE_LOOP
+   AND CX,1
+   CMP CX,0
+   JE N_BY_2
+   MOV CX,N
+   MOV AX,3
+   MUL CX
+   MOV CX,AX
+   ADD CX,1 
+   MOV N,CX
+   ADD CYCLE,1
+   JMP WHILE_LOOP
+   N_BY_2:
+   MOV DX,0
+   MOV AX,N 
+   MOV BX,2
+   DIV BX
+   MOV N,AX 
+   ADD CYCLE,1
+   JMP WHILE_LOOP 
+   EXIT_WHILE_LOOP:
+   MOV BX,CYCLE
+   MOV CX,MAXIMUM
+   CMP BX,CX
+   JG RESET_MAX 
+   ADD K,1
+   JMP FOR_LOOP
+   RESET_MAX:
+   MOV MAXIMUM,BX
+   ADD K,1 
+   JMP FOR_LOOP
+   EXIT_FOR_LOOP:
+   ADD MAXIMUM,1 
+   
+   MOV AH,2
+   MOV DL,0DH
+   INT 21H
+   MOV DL,0AH
+   INT 21H
+                        
+                      
+   ;PRINTING THE ANSWER 
+    MOV CX,0
+   
+    MOV BL,0 
+    WHILE_10000:
+    CMP INPUT1,10000 
+    JL PRINT_10000
+    SUB INPUT1,10000     
+    ADD BL,1
+    JMP WHILE_10000
+    PRINT_10000:
+    CMP BL,0
+    JNE  T_10000 
+    CMP CX,0
+    JE  NEXT_1000
+    T_10000:
+    MOV CX,1
+    ADD BL,'0'
+    MOV AH,2
+    MOV DL,BL
+    INT 21H
+      
+      
+    NEXT_1000:
+    MOV BL,0 
+    WHILE_1000:
+    CMP INPUT1,1000 
+    JL PRINT_1000
+    SUB INPUT1,1000     
+    ADD BL,1
+    JMP WHILE_1000
+    PRINT_1000:
+    CMP BL,0
+    JNE  T_1000 
+    CMP CX,0
+    JE  NEXT_100 
+    T_1000:
+    MOV CX,1
+    ADD BL,'0'
+    MOV AH,2
+    MOV DL,BL
+    INT 21H
+    
+    
+    NEXT_100:
+    MOV BL,0
+    WHILE_100:
+    CMP INPUT1,100 
+    JL PRINT_100
+    SUB INPUT1,100     
+    ADD BL,1
+    JMP WHILE_100
+    PRINT_100:
+    CMP BL,0
+    JNE  T_100 
+    CMP CX,0
+    JE  NEXT_10 
+    T_100: 
+    MOV CX,1
+    ADD BL,'0'
+    MOV AH,2
+    MOV DL,BL
+    INT 21H 
+    
+    
+    NEXT_10:
+    MOV BL,0
+    WHILE_10:
+    CMP INPUT1,10 
+    JL PRINT_10
+    SUB INPUT1,10     
+    ADD BL,1
+    JMP WHILE_10
+    PRINT_10: 
+    CMP BL,0
+    JNE  T_10 
+    CMP CX,0
+    JE  NEXT_1 
+    T_10:
+    MOV CX,1
+    ADD BL,'0'
+    MOV AH,2
+    MOV DL,BL
+    INT 21H
+    
+    NEXT_1:
+    MOV BL,0
+    WHILE_1:
+    CMP INPUT1,1 
+    JL PRINT_1
+    SUB INPUT1,1     
+    ADD BL,1
+    JMP WHILE_1
+    PRINT_1:
+    ADD BL,'0'
+    MOV AH,2
+    MOV DL,BL
+    INT 21H
+    
+    
+    MOV AH,2
+    MOV DL,09H
+    INT 21H
+    
+    
+    MOV CX,0
+    
+    MOV BL,0 
+    WWHILE_10000:
+    CMP INPUT2,10000 
+    JL PPRINT_10000
+    SUB INPUT2,10000     
+    ADD BL,1
+    JMP WWHILE_10000
+    PPRINT_10000:
+    CMP BL,0
+    JNE  TT_10000 
+    CMP CX,0
+    JE  NNEXT_1000
+    TT_10000:
+    MOV CX,1
+    ADD BL,'0'
+    MOV AH,2
+    MOV DL,BL
+    INT 21H
+      
+      
+    NNEXT_1000:
+    MOV BL,0 
+    WWHILE_1000:
+    CMP INPUT2,1000 
+    JL PPRINT_1000
+    SUB INPUT2,1000     
+    ADD BL,1
+    JMP WWHILE_1000
+    PPRINT_1000:
+    CMP BL,0
+    JNE TT_1000 
+    CMP CX,0
+    JE  NNEXT_100 
+    TT_1000:
+    MOV CX,1
+    ADD BL,'0'
+    MOV AH,2
+    MOV DL,BL
+    INT 21H
+    
+    
+    NNEXT_100:
+    MOV BL,0
+    WWHILE_100:
+    CMP INPUT2,100 
+    JL PPRINT_100
+    SUB INPUT2,100     
+    ADD BL,1
+    JMP WWHILE_100
+    PPRINT_100:
+    CMP BL,0
+    JNE  TT_100 
+    CMP CX,0
+    JE  NNEXT_10 
+    TT_100:
+    MOV CX,1
+    ADD BL,'0'
+    MOV AH,2
+    MOV DL,BL
+    INT 21H 
+    
+    
+    NNEXT_10:
+    MOV BL,0
+    WWHILE_10:
+    CMP INPUT2,10 
+    JL PPRINT_10
+    SUB INPUT2,10     
+    ADD BL,1
+    JMP WWHILE_10
+    PPRINT_10: 
+    CMP BL,0
+    JNE TT_10 
+    CMP CX,0
+    JE  NNEXT_1 
+    TT_10: 
+    MOV CX,1
+    ADD BL,'0'
+    MOV AH,2
+    MOV DL,BL
+    INT 21H
+    
+    NNEXT_1:
+    MOV BL,0
+    WWHILE_1:
+    CMP INPUT2,1 
+    JL PPRINT_1
+    SUB INPUT2,1     
+    ADD BL,1
+    JMP WWHILE_1
+    PPRINT_1:
+    ADD BL,'0'
+    MOV AH,2
+    MOV DL,BL
+    INT 21H 
+    
+    MOV AH,2
+    MOV DL,09H
+    INT 21H
+    
+    MOV CX,0
+    
+    MOV BL,0 
+    WWWHILE_10000:
+    CMP MAXIMUM,10000 
+    JL PPPRINT_10000
+    SUB MAXIMUM,10000     
+    ADD BL,1
+    JMP WWWHILE_10000
+    PPPRINT_10000:
+    CMP BL,0
+    JNE TTT_10000 
+    CMP CX,0
+    JE  NNNEXT_1000
+    TTT_10000:
+    MOV CX,1
+    ADD BL,'0'
+    MOV AH,2
+    MOV DL,BL
+    INT 21H
+      
+      
+    NNNEXT_1000:
+    MOV BL,0 
+    WWWHILE_1000:
+    CMP MAXIMUM,1000 
+    JL PPPRINT_1000
+    SUB MAXIMUM,1000     
+    ADD BL,1
+    JMP WWWHILE_1000
+    PPPRINT_1000:
+    CMP BL,0
+    JNE TTT_1000 
+    CMP CX,0
+    JE  NNNEXT_100 
+    TTT_1000: 
+    MOV CX,1
+    ADD BL,'0'
+    MOV AH,2
+    MOV DL,BL
+    INT 21H
+    
+    
+    NNNEXT_100:
+    MOV BL,0
+    WWWHILE_100:
+    CMP MAXIMUM,100 
+    JL PPPRINT_100
+    SUB MAXIMUM,100     
+    ADD BL,1
+    JMP WWWHILE_100
+    PPPRINT_100:
+    CMP BL,0
+    JNE TTT_100 
+    CMP CX,0
+    JE  NNNEXT_10 
+    TTT_100:
+    MOV CX,1
+    ADD BL,'0'
+    MOV AH,2
+    MOV DL,BL
+    INT 21H 
+    
+    
+    NNNEXT_10:
+    MOV BL,0
+    WWWHILE_10:
+    CMP MAXIMUM,10 
+    JL PPPRINT_10
+    SUB MAXIMUM,10     
+    ADD BL,1
+    JMP WWWHILE_10
+    PPPRINT_10: 
+    CMP BL,0
+    JNE TTT_10 
+    CMP CX,0
+    JE  NNNEXT_1 
+    TTT_10:  
+    MOV CX,1
+    ADD BL,'0'
+    MOV AH,2
+    MOV DL,BL
+    INT 21H
+    
+    NNNEXT_1:
+    MOV BL,0
+    WWWHILE_1:
+    CMP MAXIMUM,1 
+    JL PPPRINT_1
+    SUB MAXIMUM,1     
+    ADD BL,1
+    JMP WWWHILE_1
+    PPPRINT_1:
+    ADD BL,'0'
+    MOV AH,2
+    MOV DL,BL
+    INT 21H
+   
+     
+    
+   MOV AH,2
+   MOV DL,0DH
+   INT 21H
+   MOV DL,0AH
+   INT 21H
+   
+   JMP ETERNAL
+   
+   
+ 
+   
+    
+    
+    
+MAIN ENDP
+END MAIN

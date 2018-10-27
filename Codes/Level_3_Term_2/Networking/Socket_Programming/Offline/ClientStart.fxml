@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="217.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ClientStartController">
+   <children>
+      <Text layoutX="437.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Client" />
+      <Text layoutX="8.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ipAddress:" wrappingWidth="115.6708984375" />
+      <TextField fx:id="serverIP" layoutX="102.0" layoutY="38.0" />
+      <Text layoutX="8.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student ID:" wrappingWidth="115.6708984375" />
+      <Text layoutX="8.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="115.6708984375" />
+      <Text layoutX="8.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Port Number:" wrappingWidth="115.6708984375" />
+      <TextField fx:id="studentID" layoutX="102.0" layoutY="74.0" />
+      <TextField fx:id="portNumber" layoutX="113.0" layoutY="114.0" />
+      <Button fx:id="connect" layoutX="28.0" layoutY="163.0" mnemonicParsing="false" onAction="#connectToServer" text="Connect" />
+   </children>
+</Pane>

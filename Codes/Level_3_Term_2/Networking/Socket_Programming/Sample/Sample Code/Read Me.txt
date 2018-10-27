@@ -1,0 +1,10 @@
+javac TestServer.java
+javac SimpleClient.java
+
+java TestServer
+java SimpleClient
+java SimpleClient
+java SimpleClient
+
+
+P.S: If javac is not found as a command then add the java bin folder's directory (C:\Program Files\Java\jdk1.7.0_51\bin) to environemtal path variable.
